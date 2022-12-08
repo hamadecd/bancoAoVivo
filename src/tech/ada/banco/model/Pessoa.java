@@ -13,7 +13,7 @@ public class Pessoa {
 
     public Pessoa(String nome, String cpf, LocalDate dataNascimento) {
         this.nome = nome;
-        this.cpf = cpf;
+        setCpf(cpf);
         this.dataNascimento = dataNascimento;
     }
 
@@ -38,7 +38,12 @@ public class Pessoa {
     }
 
     public void setCpf(String cpf) {
-        this.cpf = cpf;
+        if (cpf.length() == 11) {
+            this.cpf = cpf;
+        } else {
+            throw new RuntimeException("CPF inválido!");
+        }
+
     }
 
     public LocalDate getDataNascimento() {
